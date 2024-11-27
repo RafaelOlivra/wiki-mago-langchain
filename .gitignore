@@ -7,7 +7,6 @@
 .ipynb_checkpoints
 package.zip
 __pycache__
-Caddyfile
 *.temp
 *.log
 *.code-workspace
