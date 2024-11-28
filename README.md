@@ -1,10 +1,9 @@
 # Wiki Mago 🧙‍♂️
 
-> ### TP3: Desenvolvimento Front-End com Python (com Streamlit) [24E3_1]
+> ### TP3: Desenvolvimento de Data-Driven Apps com Python [24E4_3]
 >
 > **Rafael Soares de Oliveira**  
 > Infnet - Ciência de Dados | Dezembro 2024  
-> [Página do Trabalho](https://lms.infnet.edu.br/moodle/mod/assign/view.php?id=426791)
 
 ## Sobre o projeto
 
