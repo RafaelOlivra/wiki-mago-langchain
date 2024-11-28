@@ -61,11 +61,12 @@ def Main():
     # Agent intro
     with st.expander("Abracadabra! ✨", expanded=True):
         st.info(
-            """
-            Sou um chatbot que utiliza dados da 📘 Wikipedia, 📽️ YouTube e da 🌐 Web para trazer respostas mágicas sobre qualquer assunto.  \
+            """ 
+            Sou um chatbot mágico que utiliza dados da 📘 Wikipedia, 📽️ YouTube e da 🌐 Web para responder perguntas sobre qualquer assunto.  \
+            
+            Precisa de ajuda com uma pesquisa? Tem curiosidade sobre algo específico? Ou só quer assistir vídeos de gatinhos brincando?  \
                 
-                
-            O Wiki Mago sabe de tudo! (Ou quase tudo...)
+            **O Wiki Mago sabe de tudo!** (Ou quase tudo... 🪄)
             """
         )
 
@@ -92,7 +93,6 @@ def Main():
 
     # Accept user input
     if prompt := st.chat_input("Em que posso ajudar?"):
-        # Display user message in chat message container
         with st.chat_message("human"):
             st.markdown(prompt)
 
