@@ -62,20 +62,31 @@ def Main():
     with st.expander("Abracadabra! ✨", expanded=True):
         st.info(
             """
-                Sou um chatbot que utiliza dados da 📘 Wikipedia, 📽️ YouTube e da 🌐 Web para trazer respostas mágicas sobre qualquer assunto.  \
-                    
-                - "Quem é o 7º presidente do Brasil?"
-                - "Quem foi o primeiro astronauta a pisar na Lua?"  \
-
-                    
-                O Wiki Mago sabe de tudo! (Ou quase tudo...)
-        """
+            Sou um chatbot que utiliza dados da 📘 Wikipedia, 📽️ YouTube e da 🌐 Web para trazer respostas mágicas sobre qualquer assunto.  \
+                
+                
+            O Wiki Mago sabe de tudo! (Ou quase tudo...)
+            """
         )
 
     # Display chat messages from history on app rerun
     st.write("#### Chat")
+
+    chat_history = agent.chat_history()
+    if not chat_history:
+        st.warning(
+            """
+            Faça uma pergunta para começar!  \
+                
+            - "Quem é o 7º presidente do Brasil?"
+            - "Quem foi o primeiro astronauta a pisar na Lua?"
+            - "Principais notícias para São Paulo"
+            - "Vídeos sobre como fazer um bolo de chocolate!"
+            """
+        )
+
     st.write(" ")
-    for message in agent.chat_history():
+    for message in chat_history:
         with st.chat_message(message.type):
             st.markdown(message.content)
 
