@@ -25,7 +25,7 @@ st.set_page_config(
 # Main app
 # ------------------------
 def Main():
-    col1, col2, col3 = st.columns([6, 2, 2])
+    col1, col2, col3 = st.columns([5, 2, 2])
 
     col1.write("## Wiki Mago 🧙‍♂️")
 
@@ -88,9 +88,9 @@ def Main():
         # Get response from agent
         with st.spinner("Pensando✨..."):
             try:
-                response = agent.ask(prompt)
+                agent.ask(prompt)
             except Exception as e:
-                response = str(e)
+                st.error(e)
 
         # Display agent response in chat message container
         st.rerun()

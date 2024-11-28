@@ -10,4 +10,5 @@ class OpenAIAgent(SmartChatAgent):
             model="gpt-4o-mini",
             api_key=os.getenv("OPENAI_API_KEY"),
             max_tokens=600,
+            streaming=True,
         )
