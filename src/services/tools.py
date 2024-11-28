@@ -3,6 +3,7 @@ from langchain_community.utilities import (
     WikipediaAPIWrapper,
     GoogleSerperAPIWrapper,
 )
+from langchain_community.tools import YouTubeSearchTool
 import os
 
 
@@ -25,5 +26,10 @@ def _setup_tools() -> list[Tool]:
             name="Wikipedia",
             func=wikipedia.run,
             description="Useful for when you need to answer general questions about people, places, companies, facts, historical events, or other subjects. Input should be a search query.",
+        ),
+        Tool(
+            name="YouTubeSearch",
+            func=YouTubeSearchTool().run,
+            description="Useful for when you need to search for videos on YouTube. Input should be a search query.",
         ),
     ]

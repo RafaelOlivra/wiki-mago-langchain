@@ -52,7 +52,7 @@ def Main():
         st.download_button(
             "Exportar ⬇️",
             json,
-            "chat_history.json",
+            "wiki-mago-chat-history.json",
             "application/json",
             key="export-chat",
             use_container_width=True,
@@ -62,7 +62,7 @@ def Main():
     with st.expander("Abracadabra! ✨", expanded=True):
         st.info(
             """
-                Sou um chatbot que utiliza dados da Wikipedia 📘 e da Web 🌐 para trazer respostas mágicas sobre qualquer assunto.  \
+                Sou um chatbot que utiliza dados da 📘 Wikipedia, 📽️ YouTube e da 🌐 Web para trazer respostas mágicas sobre qualquer assunto.  \
                     
                 - "Quem é o 7º presidente do Brasil?"
                 - "Quem foi o primeiro astronauta a pisar na Lua?"  \
