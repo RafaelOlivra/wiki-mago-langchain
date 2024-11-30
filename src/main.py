@@ -102,12 +102,13 @@ def Main():
             st.markdown(prompt)
 
         # Get response from agent
-        with st.spinner("Pensando✨..."):
-            try:
-                streaming_callback = StreamlitCallbackHandler(st.container())
-                st.markdown(agent.ask(prompt, callbacks=[streaming_callback]))
-            except Exception as e:
-                st.error(e)
+        try:
+            streaming_callback = StreamlitCallbackHandler(
+                st.container(), max_thought_containers=2
+            )
+            st.markdown(agent.ask(prompt, callbacks=[streaming_callback]))
+        except Exception as e:
+            st.error(e)
 
         # Clear the streaming output and show the final response
         if CLEAR_STREAMING_THOUGHTS:
