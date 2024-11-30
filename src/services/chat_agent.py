@@ -7,6 +7,8 @@ from langchain.memory import ConversationBufferMemory
 from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_community.chat_message_histories import StreamlitChatMessageHistory
 
+from langchain_core.callbacks.base import Callbacks
+
 from services.tools import _setup_tools
 
 
@@ -23,10 +25,10 @@ class SmartChatAgent:
     # User facing methods
     # ------------------------
 
-    def ask(self, query: str) -> str:
+    def ask(self, query: str, callbacks: Callbacks = None) -> str:
         """Ask the agent a question."""
         try:
-            response = self.executor.invoke({"input": query})
+            response = self.executor.invoke({"input": query}, {"callbacks": callbacks})
             return response["output"]
         except Exception as e:
             return f"An error occurred: {str(e)}"

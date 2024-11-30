@@ -5,6 +5,8 @@ from dotenv import load_dotenv
 from services.gemini_agent import GeminiAgent
 from services.openai_agent import OpenAIAgent
 
+from langchain_community.callbacks.streamlit import StreamlitCallbackHandler
+
 # ------------------------
 # Page layout and setup
 # ------------------------
@@ -28,6 +30,9 @@ def Main():
     col1, col2, col3 = st.columns([5, 2, 2])
 
     col1.write("## Wiki Mago 🧙‍♂️")
+
+    # Clear the streaming leftover after we get the complete response
+    CLEAR_STREAMING_THOUGHTS = True
 
     # Select LLM model
     model = st.selectbox(
@@ -99,12 +104,14 @@ def Main():
         # Get response from agent
         with st.spinner("Pensando✨..."):
             try:
-                agent.ask(prompt)
+                streaming_callback = StreamlitCallbackHandler(st.container())
+                st.markdown(agent.ask(prompt, callbacks=[streaming_callback]))
             except Exception as e:
                 st.error(e)
 
-        # Display agent response in chat message container
-        st.rerun()
+        # Clear the streaming output and show the final response
+        if CLEAR_STREAMING_THOUGHTS:
+            st.rerun()
 
 
 if __name__ == "__main__":
